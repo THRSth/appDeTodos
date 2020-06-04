@@ -1,3 +1,3 @@
 App de todo
 
-finalidade estudar JavaScript fazendo um app de todo
+Finalidade, estudar JavaScript fazendo um app de todo.
