@@ -2,11 +2,7 @@ var listElemt = document.querySelector('#app ul');
 var inputElement = document.querySelector ('#app input');
 var buttonElement = document.querySelector ('#app button');
 
-var todos = [
-    'Fazer cafe',
-    'Estudar Java',
-    'Acessaar Comunidade Java'
-];
+var todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
 function renderTodos() {
     listElemt.innerHTML = '';
@@ -39,6 +35,7 @@ function addTodo() {
     todos.push(todoText);
     inputElement.value = '';
     renderTodos();
+    saveToStorage();
 }
 
 buttonElement.onclick = addTodo;
@@ -47,4 +44,9 @@ buttonElement.onclick = addTodo;
 function deleteTodo(pos) {
     todos.splice(pos, 1);
     renderTodos();
+    saveToStorage();
+}
+
+function saveToStorage() {
+    localStorage.setItem('list_todos', JSON.stringify(todos));
 }
